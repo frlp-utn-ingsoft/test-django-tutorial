@@ -76,7 +76,7 @@ def test():
         context = browser.new_context()
         page = context.new_page()
 
-        run_test("should list all polls", test_should_list_all_polls, page)
+        run_test("should list all polls", test_should_list_polls, page)
         run_test("should vote", test_should_vote, page)
          
         browser.close()
@@ -89,7 +89,7 @@ def run_test(name, test, page):
         print(bcolors.FAIL + f"[fail] {name}" + bcolors.ENDC)
         print(inst)
 
-def test_should_list_all_polls(page):
+def test_should_list_polls(page):
     page.goto("http://localhost:8000/polls")
 
     poll_list = page.get_by_role("list")
